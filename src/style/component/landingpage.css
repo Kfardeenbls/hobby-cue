@@ -1,0 +1,108 @@
+.landingPage-container {
+  background-color: #f7f5f9;
+  flex-direction: column;
+}
+
+.landingPage-container .hero-content .left-container {
+  flex-direction: column;
+}
+
+.landingPage-container .hero-content .left-container .content {
+  margin: 100px;
+  margin-bottom: 50px;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.landingPage-container .right-container {
+  margin-top: 100px;
+  margin-right: 100px;
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.landingPage-container .right-container div .cust-btn {
+  padding: 10px 15px;
+  border: none;
+  background-color: transparent;
+  transition: 0.2s ease-in-out;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.landingPage-container .right-container div button:focus:not(:focus-visible) {
+  outline: none;
+  border-color: none !important;
+}
+
+.cust-active {
+  color: #8064a2;
+  border-color: none !important;
+  border: none !important;
+  border-bottom: 1px solid #8064a2 !important;
+}
+
+.landingPage-container .hero-img {
+  min-width: 70%;
+  min-height: 250px;
+  margin: 0 100px;
+}
+
+.landingPage-container > .hero-img {
+  display: none;
+}
+
+@media screen and (max-width: 1280px) {
+  /* .landingPage-container .hero-content{
+        flex-direction: column;
+    } */
+}
+
+@media screen and (max-width: 1024px) {
+  .landingPage-container .hero-content {
+    flex-direction: column;
+  }
+
+  .landingPage-container .hero-content .right-container {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: calc(90% - 50px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* .landingPage-container .hero-content{
+        flex-direction: column;
+    } */
+}
+@media screen and (max-width: 768px) {
+  .landingPage-container .hero-content .left-container .content {
+    margin: 40px;
+  }
+
+  .landingPage-container .hero-content .left-container > .hero-img {
+    display: none;
+  }
+
+  .landingPage-container .hero-img {
+    display: flex;
+    margin: 0 40px;
+  }
+
+  .landingPage-container .hero-content .right-container {
+    margin: 0 auto;
+    /* min-width: calc(90% - 50px); */
+  }
+
+  .landingPage-container .hero-content .right-container .selection {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .landingPage-container .hero-content .right-container {
+    margin: 0 25px;
+  }
+}

@@ -1,0 +1,41 @@
+.auth-container{
+    gap: 20px;
+    flex-direction: column;
+    
+}
+
+.auth-container .heading{
+font-weight: 700;
+justify-content: center;
+align-items: center;
+gap: 10px;
+}
+
+.auth-container .heading .line{
+    height: 3px;
+    width: 100%;
+    background-color: #CED4DA;
+}
+
+.auth-container .heading .txt{
+    min-width: fit-content;
+    margin: unset;
+}
+
+.auth-container .social-media{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.auth-container .social-media .item{
+    border: 1px solid #8064a2;
+    font-weight: 700;
+    display: flex;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.auth-container .social-media .item p{
+    margin: 0 auto;
+}
