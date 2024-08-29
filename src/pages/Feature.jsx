@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import "../style/pages/featured.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -6,13 +6,12 @@ import {
   faMapMarkerAlt,
   faShoppingCart,
   faCalendarAlt,
-} from "@fortawesome/free-solid-svg-icons"; // Import relevant icons
+} from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 import Link from "next/link";
 
 const Feature = () => {
-
-const [hoveredId, setHoveredId] = useState(null);
+  const [hoveredId, setHoveredId] = useState(null);
   const featureData = [
     {
       id: 1,
@@ -22,8 +21,7 @@ const [hoveredId, setHoveredId] = useState(null);
         "Find a teacher, coach, or expert for your hobby interest in your locality. Find a partner, teammate, accompanist or collaborator.",
       btn_label: "connect",
       icon: faUser, // Use the imported icon
-      color : " #8064A2"
-
+      color: " #8064A2",
     },
     {
       id: 2,
@@ -33,7 +31,7 @@ const [hoveredId, setHoveredId] = useState(null);
         "Find a class, school, playground, auditorium, studio, shop or an event venue. Book a slot at venues that allow booking through hobbycue.",
       btn_label: "Meet up",
       icon: faMapMarkerAlt, // Use the imported icon
-      color : " #77933C"
+      color: " #77933C",
     },
     {
       id: 3,
@@ -43,7 +41,7 @@ const [hoveredId, setHoveredId] = useState(null);
         "Find equipment or supplies required for your hobby. Buy, rent or borrow from shops, online stores or from community members.",
       btn_label: "Get it",
       icon: faShoppingCart, // Use the imported icon
-      color : " #C0504D"
+      color: " #C0504D",
     },
     {
       id: 4,
@@ -53,50 +51,84 @@ const [hoveredId, setHoveredId] = useState(null);
         "Find events, meetups, and workshops related to your hobby. Register or buy tickets online.",
       btn_label: "Attend",
       icon: faCalendarAlt, // Use the imported icon
-      color : " #0096C8"
+      color: " #0096C8",
     },
   ];
 
   return (
-    <div div className="feature-section d-flex " style={{ flexDirection:"column"}}>
-      <div className="d-flex" style={{ margin: "100px", flexWrap:"wrap", justifyContent:"center"}}>
+    <div
+      className="feature-section d-flex "
+      style={{ flexDirection: "column" }}
+    >
+      <div
+        className="d-flex"
+        style={{ margin: "100px", flexWrap: "wrap", justifyContent: "center" }}
+      >
         {featureData.map((item) => (
-            <div className="card m-4 "  key={item.id} style={{ minWidth: "300px", maxWidth:"300px" }}>
-              <div className="card-body mobile-view-card-item-center"
+          <div
+            className="card m-2 "
+            key={item.id}
+            style={{ minWidth: "300px", maxWidth: "608px" }}
+          >
+            <div
+              className="card-body cust-card-body mobile-view-card-item-center"
               onMouseEnter={() => setHoveredId(item.id)}
               onMouseLeave={() => setHoveredId(null)}
-              style={{ border:`1px solid ${item.color}`, backgroundColor: hoveredId === item.id ? item.color : 'transparent',}} >
-                <div className="d-flex align-items-center mb-3">
-                  <FontAwesomeIcon
-                    icon={item.icon}
-                    style={{
-                      color: "#8064A2",
-                      fontSize: "2rem",
-                      marginRight: "1rem",
-                    }}
-                  />
-                  <h5 className="card-title mb-0">{item.title}</h5>
-                </div>
-                <p className="card-text">{item.description}</p>
-                <Link
-                  href="#"
-                  className="btn btn-primary"
+              style={{
+                border: `1px solid ${item.color}`,
+                padding: "44px",
+                backgroundColor:
+                  hoveredId === item.id ? item.color : "transparent",
+              }}
+            >
+              <div className="card-icon d-flex align-items-center mb-3">
+                <FontAwesomeIcon
+                  icon={item.icon}
+                  className="icon"
                   style={{
-                    backgroundColor: "transparent",
-                    color: "#8064a2",
-                    border: "1px solid #8064a2",
+                    color: hoveredId === item.id ? "#fff" : "#8064A2",
+                    fontSize: "2rem",
+                    marginRight: "1rem",
                   }}
+                />
+                <h5
+                  className="card-title mb-0"
+                  style={{ color: hoveredId === item.id ? "#fff" : "" }}
                 >
-                  {item?.btn_label}
-                </Link>
+                  {item.title}
+                </h5>
               </div>
+              <p
+                className="card-desc"
+                style={{ color: hoveredId === item.id ? "#fff" : "" }}
+              >
+                {item.description}
+              </p>
+              <Link
+                href="#"
+                className="btn btn-primary"
+                style={{
+                  backgroundColor: "transparent",
+                  color: "#8064a2",
+                  border: "1px solid #8064a2",
+                }}
+              >
+                {item?.btn_label}
+              </Link>
             </div>
+          </div>
         ))}
       </div>
-      <div className="add-form d-flex " style={{backgroundColor:"#F7FDFF"}}>
-        <div className="card mobile-margin" style={{ margin: "100px", padding:"50px" }}>
+      <div className="add-form d-flex " style={{ backgroundColor: "#F7FDFF" }}>
+        <div
+          className="card mobile-margin"
+          style={{ margin: "100px", padding: "50px" }}
+        >
           <div className="card-body mobile-view-card-item-center">
-            <div className="d-flex align-items-center mb-3" style={{gap:"20px"}}>
+            <div
+              className="d-flex align-items-center mb-3"
+              style={{ gap: "20px" }}
+            >
               <span>
                 <svg
                   width="40"
@@ -120,7 +152,11 @@ const [hoveredId, setHoveredId] = useState(null);
               </span>
               <h5 className="card-title mb-0">Add your own</h5>
             </div>
-            <p className="card-text mb-4">Are you a teacher or expert?  Do you sell or rent out equipment, venue or event tickets?  Or, you know someone who should be on hobbycue?  Go ahead and Add your Own page</p>
+            <p className="card-text mb-4">
+              Are you a teacher or expert? Do you sell or rent out equipment,
+              venue or event tickets? Or, you know someone who should be on
+              hobbycue? Go ahead and Add your Own page
+            </p>
             <Link
               href="#"
               className="btn btn-primary"

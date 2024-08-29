@@ -35,7 +35,7 @@ const LandingPage = () => {
               </p>
             </div>
           </div>
-          <div className="hero-img relative flex-1">
+          <div className="hero-img relative flex-1 mt-4">
             <Image
               src="/landingImg.png"
               alt="landingImg.png"

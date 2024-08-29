@@ -6,8 +6,8 @@ import Image from "next/image";
 
 const Testimonial = () => {
   return (
-    <div className="d-flex mobile-margin" style={{margin:"100px"}}>
-      <div className="card " style={{}}>
+    <div className="d-flex mobile-margin" style={{ margin: "100px" }}>
+      <div className="card " style={{ padding: "40px" }}>
         <div className="card-body mobile-view-card-item-center">
           <div className="d-flex align-items-center mb-4">
             <FontAwesomeIcon
@@ -33,7 +33,15 @@ const Testimonial = () => {
             city, all under one roof, is an excellent idea and I highly
             recommend it.
           </p>
-          <div className="d-flex mb3" style={{gap:"30px" , flexWrap:"wrap" , justifyContent:"center", alignItems:"center"}}>
+          <div
+            className="d-flex mb3"
+            style={{
+              gap: "30px",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <div
               className="d-flex"
               style={{
@@ -44,7 +52,7 @@ const Testimonial = () => {
                 padding: "10px 15px",
                 backgroundColor: "#CCC1DA",
                 borderRadius: "6px",
-                minWidth:"300px"
+                minWidth: "300px",
               }}
             >
               <div className="audio-player " style={{ flex: "1" }}>
@@ -96,9 +104,16 @@ const Testimonial = () => {
                   style={{ position: "absolute", objectFit: "cover" }}
                 />
               </div>
-              <div className="d-flex" style={{flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-                <p style={{margin:"unset"}}>Shubha Nagarajan</p>
-                <span style={{color:"#0096C8"}}>Classical Dancer</span>
+              <div
+                className="d-flex"
+                style={{
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <p style={{ margin: "unset" }}>Shubha Nagarajan</p>
+                <span style={{ color: "#0096C8" }}>Classical Dancer</span>
               </div>
             </div>
           </div>
