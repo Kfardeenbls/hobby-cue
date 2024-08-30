@@ -8,6 +8,7 @@ import Head from "next/head";
 import BootstrapClient from "@/component/BootstrapClient";
 import Footer from "@/component/Footer";
 import ScrollToTopButton from "@/component/ScrollUpBtn";
+import NavbarTest1 from "@/component/NavbarTest1";
 
 const inter = Inter({ subsets: ["latin"] });
 

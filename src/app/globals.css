@@ -5,10 +5,10 @@
 }
 
 input:focus {
-  color: inherit !important; /* Reset to default color */
-  border-color: inherit !important; /* Reset to default border color */
-  outline: none !important; /* Remove the outline */
-  box-shadow: none !important; /* Remove the box-shadow */
+  color: inherit !important;
+  border-color: inherit !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .relative {
