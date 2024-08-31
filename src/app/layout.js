@@ -35,8 +35,8 @@ export default function RootLayout({ children }) {
             {children}
             <Footer />
           </div>
+          <BootstrapClient />
         </AuthProvider>
-        <BootstrapClient />
       </body>
     </html>
   );
