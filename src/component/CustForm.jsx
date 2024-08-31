@@ -7,14 +7,12 @@ import { useContext, useState } from "react";
 const CustForm = ({ signin, btnLabel }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  const { setUser, setIsLogIn, isPopUp, SetIsPopUp } = useContext(AuthContext);
+  const { setIsLogIn, isPopUp, SetIsPopUp } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(credentials);
     SetIsPopUp(false);
-
-    setUser(credentials);
     setIsLogIn(true);
   };
 
@@ -23,7 +21,7 @@ const CustForm = ({ signin, btnLabel }) => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
   return (
-    <form className="credential my-2">
+    <form className="credential my-2" onSubmit={handleSubmit}>
       <div className="form-group">
         <input
           type="email"
@@ -33,10 +31,7 @@ const CustForm = ({ signin, btnLabel }) => {
           value={credentials.email}
           onChange={(e) => {
             setCredentials({ ...credentials, email: e.target.value });
-            console.log("Email: ", e.target.value); // Check the email input
           }}
-          pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-          title="Please enter a valid email address."
           required
         />
       </div>
@@ -58,10 +53,7 @@ const CustForm = ({ signin, btnLabel }) => {
           value={credentials.password}
           onChange={(e) => {
             setCredentials({ ...credentials, password: e.target.value });
-            console.log("Password: ", e.target.value); // Check the password input
           }}
-          pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$"
-          title="Password must be at least 8 characters long, include an uppercase letter, and a number."
           required
         />
         <div className="input-group-addon me-2">
@@ -153,7 +145,7 @@ const CustForm = ({ signin, btnLabel }) => {
         className="btn btn-primary"
         data-bs-dismiss={`${isPopUp ? "modal" : ""}`}
         style={{ backgroundColor: "#8064a2" }}
-        onClick={handleSubmit}
+        // onClick={handleSubmit}
       >
         {btnLabel}
       </button>

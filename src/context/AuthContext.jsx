@@ -4,16 +4,12 @@ import { createContext, useState } from "react";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  //   const [user, setUser] = useState(null);
   const [isLogIn, setIsLogIn] = useState(false);
   const [isPopUp, SetIsPopUp] = useState(false);
 
-  console.log("isPopUp", isPopUp);
-
   return (
-    <AuthContext.Provider
-      value={{ user, setUser, isLogIn, setIsLogIn, isPopUp, SetIsPopUp }}
-    >
+    <AuthContext.Provider value={{ isLogIn, setIsLogIn, isPopUp, SetIsPopUp }}>
       {children}
     </AuthContext.Provider>
   );
