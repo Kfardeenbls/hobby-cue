@@ -9,19 +9,23 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import LinksSection from "./CustDropdown";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import AuthContext from "@/context/AuthContext";
 import AuthPopUpModel from "./popUpModel/AuthPopUpModel";
 
 const icons = [faBookmark, faBell, faCartShopping];
 
 const Navbar = () => {
-  const { isLogIn, setIsLogIn, SetIsPopUp } = useContext(AuthContext);
+  const { isLogIn, setIsLogIn, SetIsPopUp, isPopUp } = useContext(AuthContext);
 
   useEffect(() => {}, [isLogIn]);
 
   return (
-    <div className="navbar-container d-flex justify-content-between ">
+    <div
+      className={`navbar-container d-flex justify-content-between ${
+        !isPopUp ? "fixed-top" : ""
+      }`}
+    >
       <nav className="navbar navbar-expand-lg bg-light w-100">
         <div className="container-fluid">
           <Image
@@ -132,6 +136,7 @@ const Navbar = () => {
                             class="btn-close"
                             data-bs-dismiss="modal"
                             aria-label="Close"
+                            onClick={() => SetIsPopUp(false)}
                           ></button>
                         </div>
                         <AuthPopUpModel />

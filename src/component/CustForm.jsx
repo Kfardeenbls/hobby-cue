@@ -7,11 +7,12 @@ import { useContext, useState } from "react";
 const CustForm = ({ signin, btnLabel }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  const { setUser, setIsLogIn } = useContext(AuthContext);
+  const { setUser, setIsLogIn, isPopUp, SetIsPopUp } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(credentials);
+    SetIsPopUp(false);
 
     setUser(credentials);
     setIsLogIn(true);
@@ -150,6 +151,7 @@ const CustForm = ({ signin, btnLabel }) => {
       <button
         type="submit"
         className="btn btn-primary"
+        data-bs-dismiss={`${isPopUp ? "modal" : ""}`}
         style={{ backgroundColor: "#8064a2" }}
         onClick={handleSubmit}
       >
