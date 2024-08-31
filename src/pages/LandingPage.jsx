@@ -40,7 +40,7 @@ const LandingPage = () => {
               src="/landingImg.png"
               alt="landingImg.png"
               fill
-              style={{ objectFit: "cover" }}
+              style={{ objectFit: "contain" }}
             />
           </div>
         </div>

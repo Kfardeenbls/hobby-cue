@@ -11,6 +11,27 @@ input:focus {
   box-shadow: none !important;
 }
 
+.cust-btn {
+  padding: 10px 15px;
+  border: none;
+  background-color: transparent;
+  transition: 0.2s ease-in-out;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+  border-color: none !important;
+}
+
+.cust-active {
+  color: #8064a2;
+  border-color: none !important;
+  border: none !important;
+  border-bottom: 1px solid #8064a2 !important;
+}
+
 .relative {
   position: relative;
 }
@@ -23,15 +44,20 @@ input:focus {
   position: absolute;
 }
 
-@media screen and (max-width: 990px) {
-  .dropdown-menu.show {
-    position: relative !important;
-  }
-}
 .flex-col {
   display: flex;
   flex-direction: column;
 }
+
+@media screen and (max-width: 990px) {
+  .dropdown-menu.show {
+    position: relative !important;
+  }
+  .dropdown-menu.show {
+    top: 0 !important;
+  }
+}
+
 @media screen and (max-width: 740px) {
   .revrse {
     flex-direction: column-reverse !important;

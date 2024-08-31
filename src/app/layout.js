@@ -8,7 +8,7 @@ import Head from "next/head";
 import BootstrapClient from "@/component/BootstrapClient";
 import Footer from "@/component/Footer";
 import ScrollToTopButton from "@/component/ScrollUpBtn";
-import NavbarTest1 from "@/component/NavbarTest1";
+import { AuthProvider } from "@/context/AuthContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,12 +28,14 @@ export default function RootLayout({ children }) {
         <title>Blog App</title>
       </Head>
       <body className={inter.className}>
-        <div className="">
-          <Navbar />
-          <ScrollToTopButton />
-          {children}
-          <Footer />
-        </div>
+        <AuthProvider>
+          <div className="">
+            <Navbar />
+            <ScrollToTopButton />
+            {children}
+            <Footer />
+          </div>
+        </AuthProvider>
         <BootstrapClient />
       </body>
     </html>

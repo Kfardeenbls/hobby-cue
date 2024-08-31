@@ -1,19 +1,25 @@
+"use client";
 import Image from "next/image";
 import "../style/component/navbar.css";
-import DropdownMenu from "./CustomDropdown";
-import { faCompass } from "@fortawesome/free-solid-svg-icons";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { faBookmark } from "@fortawesome/free-solid-svg-icons";
-import { faBell } from "@fortawesome/free-solid-svg-icons";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBookmark,
+  faBell,
+  faCartShopping,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import LinksSection from "./CustDropdown";
-
+import { useContext, useEffect, useState } from "react";
+import AuthContext from "@/context/AuthContext";
+import AuthPopUpModel from "./popUpModel/AuthPopUpModel";
 
 const icons = [faBookmark, faBell, faCartShopping];
 
 const Navbar = () => {
+  const { isLogIn, setIsLogIn, SetIsPopUp } = useContext(AuthContext);
+
+  useEffect(() => {}, [isLogIn]);
+
   return (
     <div className="navbar-container d-flex justify-content-between ">
       <nav className="navbar navbar-expand-lg bg-light w-100">
@@ -37,14 +43,18 @@ const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse align-items-center justify-content-around" id="navbarSupportedContent" style={{gap:"20px"}}>
+          <div
+            className="collapse navbar-collapse align-items-center justify-content-around"
+            id="navbarSupportedContent"
+            style={{ gap: "20px" }}
+          >
             <form className="d-flex flex-1" role="search">
               <input
                 className="form-control"
                 style={{
                   borderTopRightRadius: 0,
                   borderBottomRightRadius: 0,
-                  minWidth:"fit-content"
+                  minWidth: "fit-content",
                 }}
                 type="search"
                 placeholder="Search"
@@ -71,22 +81,73 @@ const Navbar = () => {
                 </svg>
               </button>
             </form>
-                  <LinksSection />
+            <LinksSection />
             <ul className="navbar-nav mb-2 mb-lg-0 ">
-                <div className="d-flex icon-item">
-
-              {icons &&
-                icons.map((item, index) => (
+              <div className="d-flex icon-item">
+                {icons.map((item, index) => (
                   <li className="nav-item me-4" key={index}>
                     <Link href="#">
-                      <FontAwesomeIcon icon={item}  style={{color : "#8064A2", minWidth:"fit-content"}}/>
+                      <FontAwesomeIcon
+                        icon={item}
+                        style={{ color: "#8064A2", minWidth: "fit-content" }}
+                      />
                     </Link>
                   </li>
                 ))}
-                </div>
+              </div>
             </ul>
             <div className="btn-wrapper">
-            <button type="button" class="btn btn-outline-primary">Sign In</button>
+              {!isLogIn ? (
+                <>
+                  <button
+                    type="button"
+                    className="btn btn-outline-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onClick={() => SetIsPopUp(true)}
+                  >
+                    Sign In
+                  </button>
+
+                  <div
+                    class="modal fade"
+                    id="staticBackdrop"
+                    data-bs-backdrop="static"
+                    data-bs-keyboard="false"
+                    tabindex="-1"
+                    aria-labelledby="staticBackdropLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <Image
+                            src="/PopUpLogo.png"
+                            alt=""
+                            height={50}
+                            width={50}
+                          />
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <AuthPopUpModel />
+                      </div>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <button
+                  type="button"
+                  className="btn btn-outline-primary"
+                  onClick={() => setIsLogIn(false)}
+                >
+                  Log Out
+                </button>
+              )}
             </div>
           </div>
         </div>

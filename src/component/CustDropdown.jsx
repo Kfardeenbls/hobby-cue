@@ -1,7 +1,7 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCompass, faStar } from '@fortawesome/free-solid-svg-icons'; // Import the icons you are using
-import Link from 'next/link';
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCompass, faStar } from "@fortawesome/free-solid-svg-icons"; // Import the icons you are using
+import Link from "next/link";
 
 const dropdownItemData = [
   {
@@ -20,12 +20,19 @@ const dropdownItemData = [
 
 const LinksSection = () => {
   return (
-    <div className='d-flex flex-1' style={{gap:"20px", justifyContent:"end"}}>
+    <div
+      className="d-flex flex-1 "
+      style={{ gap: "20px", justifyContent: "end" }}
+    >
       {dropdownItemData.map((section, index) => (
         <div className="dropdown" key={index}>
           <button
             className="btn btn-secondary dropdown-toggle"
-            style={{backgroundColor:"transparent", border:"none", color:"inherit"}}
+            style={{
+              backgroundColor: "transparent",
+              border: "none",
+              color: "inherit",
+            }}
             type="button"
             id={`dropdownMenuButton${index}`}
             data-bs-toggle="dropdown"
@@ -40,7 +47,10 @@ const LinksSection = () => {
             )}
             {section.name}
           </button>
-          <div className="dropdown-menu" aria-labelledby={`dropdownMenuButton${index}`}>
+          <div
+            className="dropdown-menu"
+            aria-labelledby={`dropdownMenuButton${index}`}
+          >
             {section.links.map((link, idx) => (
               <Link className="dropdown-item" href="#" key={idx}>
                 {link}
